@@ -1,35 +1,14 @@
 #include <stdio.h>
-
-#include <string.h>
-
 #include <unistd.h>
-
 /**
- *
- *  * main - main block
- *
- *   * Return: 1
- *
- *    */
-
+ * main - Prints out the last part of a quote in the standard error
+ * this file print exact file using write
+ * Return: 1  (success)
+ */
 int main(void)
-
 {
-
-		int s;
-
-
-
-			s = strlen("and that piece of art is useful\" - Dora Korpar, 2015-10-19\n");
-
-
-
-				write(2,
-
-							      "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n",
-
-							      	      s);
-
-					return (1);
+	fprintf(stderr, "and that piece of art is useful\" - Dora Korpar,");
+	fprintf(stderr, " 2015-10-19\n");
+	return (1);
 
 }
