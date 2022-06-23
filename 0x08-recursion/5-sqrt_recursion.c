@@ -1,35 +1,36 @@
 #include "main.h"
 
 /**
- * power_operation - returns the natural square root of a number.
- * @n: input number.
- * @c: iterator.
- * Return: square root or -1.
+ * helperFunction - checks if sqrt of number exists
+ * @num: number.
+ * @pSqrt: poissible sqrt of number.
+ * Return: sqrt of number ot -1 for error.
  */
-int _sqrt_recursion(int n)
-int power_operation(int n, int c)int power_operation(int n, int c)
+int helperFunction(int num, int pSqrt)
 {
-	if (c % (n / c) == 0)
+	if ((pSqrt * pSqrt) == num)
 	{
-		if (c * (n / c) == n)
-			return (c);
-		else
-			return (-1);
+		return (pSqrt);
 	}
-	return (0 + power_operation(n, c + 1));
+	else
+	{
+		if ((pSqrt * pSqrt) > num)
+			return (-1);
+		else
+			return (helperFunction(num, pSqrt + 1));
+	}
 }
+
 /**
  * _sqrt_recursion - returns the natural square root of a number.
- * @n: input number.
- * Return: natural square root.
+ * @n: number to find sqrt of.
+ * Return: squareroot of n.
+ * -1 if n does not have a natural sqrt.
  */
 int _sqrt_recursion(int n)
 {
 	if (n < 0)
 		return (-1);
-	if (n == 0)
-		return (0);
-	if (n == 1)
-		return (1);
-	return (power_operation(n, 2));
+	else
+		return (helperFunction(n, 0));
 }
